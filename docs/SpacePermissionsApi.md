@@ -1,0 +1,243 @@
+# SpacePermissionsApi
+
+All URIs are relative to *http://your-domain.atlassian.net*
+
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**addCustomContentPermissions**](SpacePermissionsApi.md#addCustomContentPermissions) | **POST** /wiki/rest/api/space/{spaceKey}/permission/custom-content | Add new custom content permission to space |
+| [**addPermissionToSpace**](SpacePermissionsApi.md#addPermissionToSpace) | **POST** /wiki/rest/api/space/{spaceKey}/permission | Add new permission to space |
+| [**removePermission**](SpacePermissionsApi.md#removePermission) | **DELETE** /wiki/rest/api/space/{spaceKey}/permission/{id} | Remove a space permission |
+
+
+<a id="addCustomContentPermissions"></a>
+# **addCustomContentPermissions**
+> addCustomContentPermissions(spaceKey, body)
+
+Add new custom content permission to space
+
+Adds new custom content permission to space.  If the permission to be added is a group permission, the group can be identified by its group name or group id.  Note: Only apps can access this REST resource and only make changes to the respective app permissions.  **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: &#39;Admin&#39; permission for the space.
+
+### Example
+```java
+// Import classes:
+import io.kestra.plugin.atlassian_confluence.client.invoker.ApiClient;
+import io.kestra.plugin.atlassian_confluence.client.invoker.ApiException;
+import io.kestra.plugin.atlassian_confluence.client.invoker.Configuration;
+import io.kestra.plugin.atlassian_confluence.client.invoker.auth.*;
+import io.kestra.plugin.atlassian_confluence.client.invoker.models.*;
+import io.kestra.plugin.atlassian_confluence.client.api.SpacePermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://your-domain.atlassian.net");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure OAuth2 access token for authorization: oAuthDefinitions
+    OAuth oAuthDefinitions = (OAuth) defaultClient.getAuthentication("oAuthDefinitions");
+    oAuthDefinitions.setAccessToken("YOUR ACCESS TOKEN");
+
+    SpacePermissionsApi apiInstance = new SpacePermissionsApi(defaultClient);
+    String spaceKey = "spaceKey_example"; // String | The key of the space to be queried for its content.
+    SpacePermissionCustomContent body = new SpacePermissionCustomContent(); // SpacePermissionCustomContent | The permissions to be created.
+    try {
+      apiInstance.addCustomContentPermissions(spaceKey, body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SpacePermissionsApi#addCustomContentPermissions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceKey** | **String**| The key of the space to be queried for its content. | |
+| **body** | [**SpacePermissionCustomContent**](SpacePermissionCustomContent.md)| The permissions to be created. | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [oAuthDefinitions](../README.md#oAuthDefinitions)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returned if the requested content is returned. |  -  |
+| **400** | Used for various errors. Such as: - Permission already exists for the given user or group. - &#39;read space&#39; permission doesn&#39;t exist for the given user or group. - No group found with the given groupName or groupId |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing from the request. |  -  |
+| **403** | Returned if the user isn&#39;t authorized. |  -  |
+| **404** | Returned if any of the following is true: - There is no space with the given key. - The calling user does not have permission to view the space. |  -  |
+
+<a id="addPermissionToSpace"></a>
+# **addPermissionToSpace**
+> SpacePermissionV2 addPermissionToSpace(spaceKey, body)
+
+Add new permission to space
+
+Adds new permission to space.  If the permission to be added is a group permission, the group can be identified by its group name or group id.  Note: Apps cannot access this REST resource - including when utilizing user impersonation.  **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: &#39;Admin&#39; permission for the space.
+
+### Example
+```java
+// Import classes:
+import io.kestra.plugin.atlassian_confluence.client.invoker.ApiClient;
+import io.kestra.plugin.atlassian_confluence.client.invoker.ApiException;
+import io.kestra.plugin.atlassian_confluence.client.invoker.Configuration;
+import io.kestra.plugin.atlassian_confluence.client.invoker.auth.*;
+import io.kestra.plugin.atlassian_confluence.client.invoker.models.*;
+import io.kestra.plugin.atlassian_confluence.client.api.SpacePermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://your-domain.atlassian.net");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure OAuth2 access token for authorization: oAuthDefinitions
+    OAuth oAuthDefinitions = (OAuth) defaultClient.getAuthentication("oAuthDefinitions");
+    oAuthDefinitions.setAccessToken("YOUR ACCESS TOKEN");
+
+    SpacePermissionsApi apiInstance = new SpacePermissionsApi(defaultClient);
+    String spaceKey = "spaceKey_example"; // String | The key of the space to be queried for its content.
+    SpacePermissionRequest body = new SpacePermissionRequest(); // SpacePermissionRequest | The permission to be created.
+    try {
+      SpacePermissionV2 result = apiInstance.addPermissionToSpace(spaceKey, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SpacePermissionsApi#addPermissionToSpace");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceKey** | **String**| The key of the space to be queried for its content. | |
+| **body** | [**SpacePermissionRequest**](SpacePermissionRequest.md)| The permission to be created. | |
+
+### Return type
+
+[**SpacePermissionV2**](SpacePermissionV2.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [oAuthDefinitions](../README.md#oAuthDefinitions)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returned if the requested content is returned. |  -  |
+| **400** | Used for various errors. Such as: - Permission already exists for the given user or group. - &#39;read space&#39; permission doesn&#39;t exist for the given user or group. - No group found with the given groupName or groupId |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing from the request. |  -  |
+| **403** | Returned if the user isn&#39;t authorized. |  -  |
+| **404** | Returned if any of the following is true: - There is no space with the given key. - The calling user does not have permission to view the space. |  -  |
+
+<a id="removePermission"></a>
+# **removePermission**
+> removePermission(spaceKey, id)
+
+Remove a space permission
+
+Removes a space permission. Note that removing Read Space permission for a user or group will remove all the space permissions for that user or group.  Note: Apps cannot access this REST resource - including when utilizing user impersonation.  **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: &#39;Admin&#39; permission for the space.
+
+### Example
+```java
+// Import classes:
+import io.kestra.plugin.atlassian_confluence.client.invoker.ApiClient;
+import io.kestra.plugin.atlassian_confluence.client.invoker.ApiException;
+import io.kestra.plugin.atlassian_confluence.client.invoker.Configuration;
+import io.kestra.plugin.atlassian_confluence.client.invoker.auth.*;
+import io.kestra.plugin.atlassian_confluence.client.invoker.models.*;
+import io.kestra.plugin.atlassian_confluence.client.api.SpacePermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://your-domain.atlassian.net");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure OAuth2 access token for authorization: oAuthDefinitions
+    OAuth oAuthDefinitions = (OAuth) defaultClient.getAuthentication("oAuthDefinitions");
+    oAuthDefinitions.setAccessToken("YOUR ACCESS TOKEN");
+
+    SpacePermissionsApi apiInstance = new SpacePermissionsApi(defaultClient);
+    String spaceKey = "spaceKey_example"; // String | The key of the space to be queried for its content.
+    Integer id = 56; // Integer | Id of the permission to be deleted.
+    try {
+      apiInstance.removePermission(spaceKey, id);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SpacePermissionsApi#removePermission");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceKey** | **String**| The key of the space to be queried for its content. | |
+| **id** | **Integer**| Id of the permission to be deleted. | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [oAuthDefinitions](../README.md#oAuthDefinitions)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Permission successfully removed. |  -  |
+| **400** | Used for various errors. Such as: - All of the admin permissions cannot be removed from a space. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing from the request. |  -  |
+| **403** | Returned if the user isn&#39;t authorized. |  -  |
+| **404** | Returned if any of the following is true: - There is no permission with the given id. - There is no space with the given key. - The calling user does not have permission to view the space. |  -  |
+
