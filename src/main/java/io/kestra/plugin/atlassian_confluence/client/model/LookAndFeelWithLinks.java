@@ -101,10 +101,10 @@ public class LookAndFeelWithLinks {
   @javax.annotation.Nullable
   private Object spaceReference;
 
-  public static final String SERIALIZED_NAME_LINKS = "_links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
+  public static final String SERIALIZED_NAME_LINKS_MAP = "_links";
+  @SerializedName(SERIALIZED_NAME_LINKS_MAP)
   @javax.annotation.Nullable
-  private Map<String, GenericLinksValue> links = new HashMap<>();
+  private Map<String, GenericLinksValue> linksMap = new HashMap<>();
 
   public LookAndFeelWithLinks() {
   }
@@ -261,30 +261,30 @@ public class LookAndFeelWithLinks {
   }
 
 
-  public LookAndFeelWithLinks links(@javax.annotation.Nullable Map<String, GenericLinksValue> links) {
-    this.links = links;
+  public LookAndFeelWithLinks linksMap(@javax.annotation.Nullable Map<String, GenericLinksValue> linksMap) {
+    this.linksMap = linksMap;
     return this;
   }
 
-  public LookAndFeelWithLinks putLinksItem(String key, GenericLinksValue linksItem) {
-    if (this.links == null) {
-      this.links = new HashMap<>();
+  public LookAndFeelWithLinks putLinksMapItem(String key, GenericLinksValue linksMapItem) {
+    if (this.linksMap == null) {
+      this.linksMap = new HashMap<>();
     }
-    this.links.put(key, linksItem);
+    this.linksMap.put(key, linksMapItem);
     return this;
   }
 
   /**
-   * Get links
-   * @return links
+   * Get linksMap
+   * @return linksMap
    */
   @javax.annotation.Nullable
-  public Map<String, GenericLinksValue> getLinks() {
-    return links;
+  public Map<String, GenericLinksValue> getLinksMap() {
+    return linksMap;
   }
 
-  public void setLinks(@javax.annotation.Nullable Map<String, GenericLinksValue> links) {
-    this.links = links;
+  public void setLinksMap(@javax.annotation.Nullable Map<String, GenericLinksValue> linksMap) {
+    this.linksMap = linksMap;
   }
 
 
@@ -306,7 +306,7 @@ public class LookAndFeelWithLinks {
         Objects.equals(this.content, lookAndFeelWithLinks.content) &&
         Objects.equals(this.bordersAndDividers, lookAndFeelWithLinks.bordersAndDividers) &&
         Objects.equals(this.spaceReference, lookAndFeelWithLinks.spaceReference) &&
-        Objects.equals(this.links, lookAndFeelWithLinks.links);
+        Objects.equals(this.linksMap, lookAndFeelWithLinks.linksMap);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -315,7 +315,7 @@ public class LookAndFeelWithLinks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(headings, links, menus, header, horizontalHeader, content, bordersAndDividers, spaceReference, links);
+    return Objects.hash(headings, links, menus, header, horizontalHeader, content, bordersAndDividers, spaceReference, linksMap);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -337,7 +337,7 @@ public class LookAndFeelWithLinks {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    bordersAndDividers: ").append(toIndentedString(bordersAndDividers)).append("\n");
     sb.append("    spaceReference: ").append(toIndentedString(spaceReference)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    linksMap: ").append(toIndentedString(linksMap)).append("\n");
     sb.append("}");
     return sb.toString();
   }
