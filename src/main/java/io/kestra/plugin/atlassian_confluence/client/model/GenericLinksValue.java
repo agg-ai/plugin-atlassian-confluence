@@ -52,6 +52,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
 
 import io.kestra.plugin.atlassian_confluence.client.invoker.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
 public class GenericLinksValue extends AbstractOpenApiSchema {
@@ -195,6 +197,7 @@ public class GenericLinksValue extends AbstractOpenApiSchema {
      */
     @SuppressWarnings("unchecked")
     @Override
+    @JsonValue
     public Object getActualInstance() {
         return super.getActualInstance();
     }
@@ -206,6 +209,7 @@ public class GenericLinksValue extends AbstractOpenApiSchema {
      * @return The actual instance of `Map<String, Object>`
      * @throws ClassCastException if the instance is not `Map<String, Object>`
      */
+    @JsonIgnore
     public Map<String, Object> getMapStringObject() throws ClassCastException {
         return (Map<String, Object>)super.getActualInstance();
     }
