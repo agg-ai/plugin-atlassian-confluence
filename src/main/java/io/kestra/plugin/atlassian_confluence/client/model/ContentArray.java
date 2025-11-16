@@ -57,7 +57,7 @@ import io.kestra.plugin.atlassian_confluence.client.invoker.JSON;
  * ContentArray
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
-public class ContentArray {
+public class ContentArray implements io.kestra.core.models.tasks.Output {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nonnull
