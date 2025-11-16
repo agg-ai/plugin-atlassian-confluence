@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package io.kestra.plugin.atlassian_confluence.client.model;
 
 import java.util.Objects;
@@ -57,7 +56,7 @@ import io.kestra.plugin.atlassian_confluence.client.invoker.JSON;
  * SearchPageResponseSearchResult
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0")
-public class SearchPageResponseSearchResult {
+public class SearchPageResponseSearchResult implements io.kestra.core.models.tasks.Output {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nonnull
@@ -121,6 +120,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get results
+   * 
    * @return results
    */
   @javax.annotation.Nonnull
@@ -132,7 +132,6 @@ public class SearchPageResponseSearchResult {
     this.results = results;
   }
 
-
   public SearchPageResponseSearchResult start(@javax.annotation.Nonnull Integer start) {
     this.start = start;
     return this;
@@ -140,6 +139,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get start
+   * 
    * @return start
    */
   @javax.annotation.Nonnull
@@ -151,7 +151,6 @@ public class SearchPageResponseSearchResult {
     this.start = start;
   }
 
-
   public SearchPageResponseSearchResult limit(@javax.annotation.Nonnull Integer limit) {
     this.limit = limit;
     return this;
@@ -159,6 +158,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get limit
+   * 
    * @return limit
    */
   @javax.annotation.Nonnull
@@ -170,7 +170,6 @@ public class SearchPageResponseSearchResult {
     this.limit = limit;
   }
 
-
   public SearchPageResponseSearchResult size(@javax.annotation.Nonnull Integer size) {
     this.size = size;
     return this;
@@ -178,6 +177,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get size
+   * 
    * @return size
    */
   @javax.annotation.Nonnull
@@ -189,7 +189,6 @@ public class SearchPageResponseSearchResult {
     this.size = size;
   }
 
-
   public SearchPageResponseSearchResult totalSize(@javax.annotation.Nonnull Integer totalSize) {
     this.totalSize = totalSize;
     return this;
@@ -197,6 +196,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get totalSize
+   * 
    * @return totalSize
    */
   @javax.annotation.Nonnull
@@ -208,7 +208,6 @@ public class SearchPageResponseSearchResult {
     this.totalSize = totalSize;
   }
 
-
   public SearchPageResponseSearchResult cqlQuery(@javax.annotation.Nonnull String cqlQuery) {
     this.cqlQuery = cqlQuery;
     return this;
@@ -216,6 +215,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get cqlQuery
+   * 
    * @return cqlQuery
    */
   @javax.annotation.Nonnull
@@ -227,7 +227,6 @@ public class SearchPageResponseSearchResult {
     this.cqlQuery = cqlQuery;
   }
 
-
   public SearchPageResponseSearchResult searchDuration(@javax.annotation.Nonnull Integer searchDuration) {
     this.searchDuration = searchDuration;
     return this;
@@ -235,6 +234,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get searchDuration
+   * 
    * @return searchDuration
    */
   @javax.annotation.Nonnull
@@ -246,7 +246,6 @@ public class SearchPageResponseSearchResult {
     this.searchDuration = searchDuration;
   }
 
-
   public SearchPageResponseSearchResult archivedResultCount(@javax.annotation.Nullable Integer archivedResultCount) {
     this.archivedResultCount = archivedResultCount;
     return this;
@@ -254,6 +253,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get archivedResultCount
+   * 
    * @return archivedResultCount
    */
   @javax.annotation.Nullable
@@ -264,7 +264,6 @@ public class SearchPageResponseSearchResult {
   public void setArchivedResultCount(@javax.annotation.Nullable Integer archivedResultCount) {
     this.archivedResultCount = archivedResultCount;
   }
-
 
   public SearchPageResponseSearchResult links(@javax.annotation.Nonnull Map<String, GenericLinksValue> links) {
     this.links = links;
@@ -281,6 +280,7 @@ public class SearchPageResponseSearchResult {
 
   /**
    * Get links
+   * 
    * @return links
    */
   @javax.annotation.Nonnull
@@ -291,8 +291,6 @@ public class SearchPageResponseSearchResult {
   public void setLinks(@javax.annotation.Nonnull Map<String, GenericLinksValue> links) {
     this.links = links;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -347,87 +345,101 @@ public class SearchPageResponseSearchResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
   public static HashSet<String> openapiFields;
   public static HashSet<String> openapiRequiredFields;
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("results", "start", "limit", "size", "totalSize", "cqlQuery", "searchDuration", "archivedResultCount", "_links"));
+    openapiFields = new HashSet<String>(Arrays.asList("results", "start", "limit", "size", "totalSize", "cqlQuery",
+        "searchDuration", "archivedResultCount", "_links"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("results", "start", "limit", "size", "totalSize", "cqlQuery", "searchDuration", "_links"));
+    openapiRequiredFields = new HashSet<String>(
+        Arrays.asList("results", "start", "limit", "size", "totalSize", "cqlQuery", "searchDuration", "_links"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SearchPageResponseSearchResult
+   * @throws IOException if the JSON Element is invalid with respect to
+   *                     SearchPageResponseSearchResult
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SearchPageResponseSearchResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in SearchPageResponseSearchResult is not found in the empty JSON string", SearchPageResponseSearchResult.openapiRequiredFields.toString()));
-        }
+    if (jsonElement == null) {
+      if (!SearchPageResponseSearchResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is
+                                                                             // null
+        throw new IllegalArgumentException(String.format(Locale.ROOT,
+            "The required field(s) %s in SearchPageResponseSearchResult is not found in the empty JSON string",
+            SearchPageResponseSearchResult.openapiRequiredFields.toString()));
       }
+    }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SearchPageResponseSearchResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SearchPageResponseSearchResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
+    Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+    // check to see if the JSON string contains additional fields
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!SearchPageResponseSearchResult.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT,
+            "The field `%s` in the JSON string is not defined in the `SearchPageResponseSearchResult` properties. JSON: %s",
+            entry.getKey(), jsonElement.toString()));
       }
+    }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SearchPageResponseSearchResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
+    // check to make sure all required properties/fields are present in the JSON
+    // string
+    for (String requiredField : SearchPageResponseSearchResult.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT,
+            "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("results").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
-      }
+    }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    // ensure the json data is an array
+    if (!jsonObj.get("results").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format(Locale.ROOT, "Expected the field `results` to be an array in the JSON string but got `%s`",
+              jsonObj.get("results").toString()));
+    }
 
-      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-      // validate the required field `results` (array)
-      for (int i = 0; i < jsonArrayresults.size(); i++) {
-        SearchResult.validateJsonElement(jsonArrayresults.get(i));
-      };
-      if (!jsonObj.get("cqlQuery").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `cqlQuery` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cqlQuery").toString()));
-      }
+    JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+    // validate the required field `results` (array)
+    for (int i = 0; i < jsonArrayresults.size(); i++) {
+      SearchResult.validateJsonElement(jsonArrayresults.get(i));
+    }
+    ;
+    if (!jsonObj.get("cqlQuery").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(Locale.ROOT,
+          "Expected the field `cqlQuery` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("cqlQuery").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SearchPageResponseSearchResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SearchPageResponseSearchResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SearchPageResponseSearchResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SearchPageResponseSearchResult.class));
+      if (!SearchPageResponseSearchResult.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'SearchPageResponseSearchResult' and its subtypes
+      }
+      final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+      final TypeAdapter<SearchPageResponseSearchResult> thisAdapter = gson.getDelegateAdapter(this,
+          TypeToken.get(SearchPageResponseSearchResult.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SearchPageResponseSearchResult>() {
-           @Override
-           public void write(JsonWriter out, SearchPageResponseSearchResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
+      return (TypeAdapter<T>) new TypeAdapter<SearchPageResponseSearchResult>() {
+        @Override
+        public void write(JsonWriter out, SearchPageResponseSearchResult value) throws IOException {
+          JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+          elementAdapter.write(out, obj);
+        }
 
-           @Override
-           public SearchPageResponseSearchResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
+        @Override
+        public SearchPageResponseSearchResult read(JsonReader in) throws IOException {
+          JsonElement jsonElement = elementAdapter.read(in);
+          validateJsonElement(jsonElement);
+          return thisAdapter.fromJsonTree(jsonElement);
+        }
 
-       }.nullSafe();
+      }.nullSafe();
     }
   }
 
@@ -436,7 +448,8 @@ public class SearchPageResponseSearchResult {
    *
    * @param jsonString JSON string
    * @return An instance of SearchPageResponseSearchResult
-   * @throws IOException if the JSON string is invalid with respect to SearchPageResponseSearchResult
+   * @throws IOException if the JSON string is invalid with respect to
+   *                     SearchPageResponseSearchResult
    */
   public static SearchPageResponseSearchResult fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SearchPageResponseSearchResult.class);
@@ -451,4 +464,3 @@ public class SearchPageResponseSearchResult {
     return JSON.getGson().toJson(this);
   }
 }
-
